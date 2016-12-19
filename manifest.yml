@@ -1,6 +1,7 @@
 applications:
 - name: fizzbuzz-api
   memory: 256M
+  instances: 1
   host: fizzbuzz-api
   env:
     FIZZBUZZ_SERVICE_ENABLED: true
