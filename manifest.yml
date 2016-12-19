@@ -4,3 +4,5 @@ applications:
   host: fizzbuzz-api
   env:
     FIZZBUZZ_SERVICE_ENABLED: true
+  services:
+    - fizzbuzz-redis
