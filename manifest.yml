@@ -1,9 +1,13 @@
 applications:
 - name: fizzbuzz-api
-  memory: 256M
   instances: 1
-  host: fizzbuzz-api
+  memory: 256M
+  disk_quota: 1024M
+  routes:
+  - route: fizzbuzz-api.cfapps.io
+  - route: fizzbuzz.mcdonoughbuzz.com
   env:
-    FIZZBUZZ_SERVICE_ENABLED: true
+    FIZZBUZZ_SERVICE_ENABLED: "true"
   services:
-    - fizzbuzz-redis
+  - fizzbuzz-redis
+  stack: cflinuxfs2
