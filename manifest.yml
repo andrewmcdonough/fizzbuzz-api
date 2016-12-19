@@ -11,3 +11,11 @@ applications:
   services:
   - fizzbuzz-redis
   stack: cflinuxfs2
+- name: fizzbuzz-api-clock
+  command: bundle exec clockwork clock.rb
+  instances: 1
+  memory: 256M
+  disk_quota: 1024M
+  health-check-type: none
+  no-route: true
+  stack: cflinuxfs2
