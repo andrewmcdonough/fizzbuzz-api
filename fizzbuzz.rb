@@ -28,4 +28,20 @@ class Fizzbuzz < Sinatra::Base
       "FAIL"
     end
   end
+
+  get '/external-redis-status' do
+    vcap_services_config = JSON.parse(ENV['VCAP_SERVICES'])
+
+    host = vcap_services_config["user-provided"].first["credentials"]["hostname"]
+    port = vcap_services_config["user-provided"].first["credentials"]["port"]
+    password = vcap_services_config["user-provided"].first["credentials"]["password"]
+
+    redis = Redis.new(host: host, port: port, password: password)
+    if redis.ping == "PONG"
+      "OKAY"
+    else
+      "FAIL"
+    end
+  end
+
 end

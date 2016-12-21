@@ -10,6 +10,7 @@ applications:
     FIZZBUZZ_SERVICE_ENABLED: "true"
   services:
   - fizzbuzz-redis
+  - fizzbuzz-external-redis
   stack: cflinuxfs2
 - name: fizzbuzz-api-clock
   command: bundle exec clockwork clock.rb
