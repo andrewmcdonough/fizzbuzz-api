@@ -11,5 +11,5 @@ inputs:
 - name: fizzbuzz
 
 run:
-  path: fizzbuzz/ci/unit_tests.sh
   dir: fizzbuzz
+  path: ci/unit_tests.sh
