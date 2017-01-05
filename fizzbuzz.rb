@@ -6,7 +6,7 @@ require 'json'
 
 class Fizzbuzz < Sinatra::Base
   get '/fizzbuzz/:number' do
-    if ENV.fetch('FIZZBUZZ_API_KEY') == request.env["API_KEY"]
+    if ENV.fetch('FIZZBUZZ_API_KEY') == request.env["HTTP_API_KEY"]
       number = params[:number]
       FizzbuzzResolver.new.resolve(number.to_i).to_s
     else

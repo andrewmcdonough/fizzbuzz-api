@@ -17,22 +17,30 @@ describe 'The Fizzbuzz App' do
   end
 
   context "with correct api key" do
+    before do
+      header "API_KEY", "mysecret"
+    end
+
     it "responds with a number for numbers that aren't divisible by 3 or 5" do
-      get '/fizzbuzz/1', {},  { 'API_KEY' => 'mysecret' }
+      get '/fizzbuzz/1'
       expect(last_response).to be_ok
       expect(last_response.body).to eq("1")
     end
 
     it "responds with fizz for 3" do
-      get '/fizzbuzz/3', {},  { 'API_KEY' => 'mysecret' }
+      get '/fizzbuzz/3'
       expect(last_response).to be_ok
       expect(last_response.body).to eq("fizz")
     end
   end
 
   context "with incorrect api key" do
+    before do
+      header "API_KEY", "failedhack"
+    end
+
     it "responds with a number for numbers that aren't divisible by 3 or 5" do
-      get '/fizzbuzz/1', {},  { 'API_KEY' => 'failedhack' }
+      get '/fizzbuzz/1'
       expect(last_response).to_not be_ok
     end
   end
