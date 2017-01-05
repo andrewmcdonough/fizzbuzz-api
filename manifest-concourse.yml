@@ -1,0 +1,4 @@
+applications:
+- name: fizzbuzz-api
+  instances: 1
+  memory: 256M
