@@ -1,4 +1,4 @@
-#!/usr/bin/sh -e
+#!/bin/sh -e
 
 bundle install
 bundle exec rspec
