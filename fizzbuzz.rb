@@ -6,11 +6,11 @@ require 'json'
 
 class Fizzbuzz < Sinatra::Base
   get '/fizzbuzz/:number' do
-    if ENV['FIZZBUZZ_SERVICE_ENABLED'] == "true"
+    if ENV.fetch('FIZZBUZZ_API_KEY') == request.env["API_KEY"]
       number = params[:number]
       FizzbuzzResolver.new.resolve(number.to_i).to_s
     else
-      "The Fizzbuzz service isn't currently available"
+      halt 403
     end
   end
 
