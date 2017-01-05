@@ -12,3 +12,4 @@ inputs:
 
 run:
   path: fizzbuzz/ci/unit_tests.sh
+  dir: fizzbuzz
