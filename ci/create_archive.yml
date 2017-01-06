@@ -14,5 +14,4 @@ outputs:
 - name: archive
 
 run:
-  dir: fizzbuzz
-  path: ci/create_archive.sh
+  path: fizzbuzz/ci/create_archive.sh
