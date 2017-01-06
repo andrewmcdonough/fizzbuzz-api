@@ -9,6 +9,7 @@ image_resource:
 
 inputs:
 - name: fizzbuzz
+- name: version
 
 outputs:
 - name: archive
